@@ -8,8 +8,9 @@ usage: fakeroot make [targets] [variables assignement] ...
 
 supported targets:
 help  # this screen
-tar   # make tarboll; needs only fakeroot and adb
-image # make image and tarboll; needs also mkyaffs2image
+tar   # (default) make tarboll; needs only fakeroot and adb
+image # make image; needs also mkyaffs2image
+all   # same as both targets "tar" and "image"
 
 fakeroot can be installed from your distro repository
 
@@ -28,7 +29,7 @@ hints about sdk stuffs:
 follow above instruction and after running "lunch ..." just
 run "make adb mkyaffs2image" to build adb and mkyaffs2image
 
-if you don't wont/can change your $$PATH,
+if you don't wont/can change your $PATH,
  you can specify paths to abf and/or mkyaffs2image:
 fakeroot make adb=/full/path/to/adb mkyaffs=/full/path/to/mkyaffs2image ...
 
