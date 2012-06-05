@@ -1,0 +1,39 @@
+pull /system from phone and create yaffs2 image,
+keep permissions and ownership
+
+list of files/dirs that cannot be pulled will be stored
+in system.log.<datetime>
+
+usage: fakeroot make [targets] [variables assignement] ...
+
+supported targets:
+help  # this screen
+tar   # make tarboll; needs only fakeroot and adb
+image # make image and tarboll; needs also mkyaffs2image
+
+fakeroot can be installed from your distro repository
+
+this script also needs "adb" from dalvik/linux sdk
+
+optionally (for building target "image")
+this script also needs "mkyaffs2image" from dalvik/linux sdk
+
+to obtain and setup dalvik/linux sdk, follow one of these links:
+1. http://developer.android.com/sdk/
+smaller downloads, but contains blobs
+2. http://source.android.com/source/initializing.html
+much larger downloads, but only free software
+
+hints about sdk stuffs:
+follow above instruction and after running "lunch ..." just
+run "make adb mkyaffs2image" to build adb and mkyaffs2image
+
+if you don't wont/can change your $$PATH,
+ you can specify paths to abf and/or mkyaffs2image:
+fakeroot make adb=/full/path/to/adb mkyaffs=/full/path/to/mkyaffs2image ...
+
+if you have more than one device connected (see output of "adb devices")
+you should specify your device serial with "device=...":
+fakeroot make device=your_device_serial ...
+
+
